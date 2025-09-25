@@ -1,51 +1,72 @@
+<p align="center">
+  <img src="screenshot/ExamMate.jpeg" alt="Exam Mate Banner" width="600"/>
+</p>
+
+<h1 align="center">📚 Exam Mate</h1>
+<p align="center">A full-stack platform for students to access, upload & share exam papers, notes, and study resources.</p>
+
+---
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/Aditya23-lab/exam-mate)
 ![GitHub stars](https://img.shields.io/github/stars/Aditya23-lab/exam-mate?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Aditya23-lab/exam-mate?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Aditya23-lab/exam-mate)
 ![GitHub license](https://img.shields.io/github/license/Aditya23-lab/exam-mate)
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://YOUR-DEPLOYED-FRONTEND-LINK)
 
-# Exam Mate
+---
 
-**Exam Mate** is a full-stack web application designed for **college and school students** to easily **access, upload, and share previous year question papers (PYQs) and study resources**.  
-
-It allows students to find exam papers by **branch, subject, semester, or exam type**, preview them online, and download them for offline use. It also provides **autocomplete suggestions** to make searching faster and more convenient.  
-
-The platform supports **both college and school modes**, ensuring students of all levels can benefit. Additionally, features like **feedback, leaderboard, and version tracking** make it a collaborative and user-friendly tool.
-
-Exam Mate is built to be **mobile responsive**, so students can access it from their phones, tablets, or computers seamlessly.
+## 📑 Table of Contents
+- [Why Exam Mate?](#-why-exam-mate)
+- [✨ Features](#-features)
+- [📸 Screenshots](#-screenshots)
+- [🛠 Tech Stack](#-tech-stack)
+- [⚙️ Installation](#️-installation)
+- [🚀 Deployment](#-deployment)
+- [🔑 Environment Variables](#-environment-variables)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
 
 ---
 
-## Why Exam Mate?
+## 📌 Why Exam Mate?
 
-Students often struggle to find reliable previous year papers or study resources. Exam Mate centralizes these resources in **one platform**, making exam preparation easier, faster, and more organized.
-
----
-
-## Features
-
-### Backend
-- Node.js + Express + MongoDB Atlas
-- User authentication (Register/Login/Logout with JWT)
-- File upload/download (PDF, DOC, Images)
-- Secure routes with auth middleware
-- File preview (PDF + images)
-- Autocomplete suggestions (subject, branch, college, school)
-
-### Frontend
-- React 19 + Vite + TailwindCSS + shadcn/ui
-- Registration & Login forms
-- Protected/private routes
-- File Upload Page with College & School modes
-- Autocomplete inputs
-- Filters on /files page (subject, branch, semester, exam type)
-- File Cards with pastel colors and version info
-- Mobile responsive design
-- Feedback section with toggle for performance
+Students often struggle to find reliable previous year papers or study resources. **Exam Mate** centralizes these resources in **one platform**, making exam preparation easier, faster, and more organized.
 
 ---
 
-## Screenshots
+## ✨ Features
+
+### 🔹 Backend
+✅ Node.js + Express + MongoDB Atlas  
+✅ JWT Authentication (Register/Login/Logout)  
+✅ File upload/download (PDF, DOC, Images)  
+✅ Secure routes with auth middleware  
+✅ File preview (PDF + Images)  
+✅ Autocomplete suggestions (subject, branch, college, school)  
+
+### 🔹 Frontend
+✅ React 19 + Vite + TailwindCSS + shadcn/ui  
+✅ Registration & Login forms  
+✅ Protected/private routes  
+✅ File Upload Page with **College & School modes**  
+✅ Autocomplete inputs for better UX  
+✅ Search & Filters (subject, branch, semester, exam type)  
+✅ File Cards with pastel colors and version info  
+✅ Mobile responsive design  
+✅ Feedback section with toggle for performance  
+
+### 🔹 Notes Section
+📘 Upload & categorize notes (Mid, Pre-final, Final, Supply/Arrear)  
+📘 Separate view for **exam notes** apart from PYQs  
+
+### 🔹 Gamification
+🏆 Leaderboard for top contributors  
+💡 Feedback system & version control  
+
+---
+
+## 📸 Screenshots
 
 ### Landing Page
 ![Landing Page](screenshot/ExamMate.jpeg)
@@ -67,17 +88,17 @@ Students often struggle to find reliable previous year papers or study resources
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
 **Backend:** Node.js, Express, MongoDB Atlas, JWT  
 **Frontend:** React 19, Vite, TailwindCSS, shadcn/ui  
-**Deployment:** Render (Backend), Vercel/Netlify (Frontend)
+**Deployment:** Render (Backend), Vercel/Netlify (Frontend)  
 
 ---
 
-## Installation
+## ⚙️ Installation
 
-### Backend
+### 🔧 Backend
 ```bash
 cd server
 npm install
