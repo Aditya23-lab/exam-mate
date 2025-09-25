@@ -1,3 +1,9 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/Aditya23-lab/exam-mate)
+![GitHub stars](https://img.shields.io/github/stars/Aditya23-lab/exam-mate?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Aditya23-lab/exam-mate?style=social)
+![GitHub license](https://img.shields.io/github/license/Aditya23-lab/exam-mate)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://YOUR-DEPLOYED-FRONTEND-LINK)
+
 # Exam Mate
 
 **Exam Mate** is a full-stack web application designed for **college and school students** to easily **access, upload, and share previous year question papers (PYQs) and study resources**.  
