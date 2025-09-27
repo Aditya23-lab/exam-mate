@@ -460,7 +460,7 @@ const Dashboard = () => {
   try {
     const token = localStorage.getItem("token");
     const res = await axios.get(`${API_BASE}/api/files/my`, {
-      params, // query parameters
+      // query parameters
       headers: {
         Authorization: `Bearer ${token}`,
       },
