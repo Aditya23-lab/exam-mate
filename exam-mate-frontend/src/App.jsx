@@ -10,7 +10,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AllFiles from "./pages/AllFiles";
 import Upload from "./pages/Upload";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import Leaderboard from "./pages/Leaderboard";
 import Landing from "./pages/Landing"; // ✅ NEW
 
