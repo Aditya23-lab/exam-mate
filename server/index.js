@@ -16,7 +16,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://exam-mate-five.vercel.app", "http://localhost:5173"],
+    origin: ["https://exam-mate-3ty9.vercel.app", "http://localhost:5173"],
     credentials: true, // if you use cookies
   })
 );
