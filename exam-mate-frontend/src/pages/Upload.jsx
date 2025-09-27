@@ -1619,7 +1619,7 @@ const Upload = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("${API_BASE}/api/files/upload", form, {
+      await axios.post(`${API_BASE}/api/files/upload`, form, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
