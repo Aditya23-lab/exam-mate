@@ -493,7 +493,7 @@ const Dashboard = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/files/${fileId}`, {
+      await axios.delete(`${API_BASE}/api/files/${fileId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMyFiles((prev) => prev.filter((file) => file._id !== fileId));
@@ -565,7 +565,7 @@ const Dashboard = () => {
                   <p className="text-sm">🏛️ College: {file.college}</p>
                   <div className="mt-4 flex gap-2 flex-wrap">
                     <a
-                      href={`http://localhost:5000/api/files/download/${file.storedName}`}
+                      href={`${API_BASE}/api/files/download/${file.storedName}`}
                       target="_blank"
                       rel="noreferrer"
                       className="bg-pink-100 text-pink-800 px-4 py-1 rounded hover:bg-pink-200 text-sm"

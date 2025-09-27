@@ -1,3 +1,4 @@
+// import cors from "cors";
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -11,7 +12,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+
+app.use(
+  cors({
+    origin: ["https://exam-mate-five.vercel.app", "http://localhost:5173"],
+    credentials: true, // if you use cookies
+  })
+);
 app.use(express.json());
 
 // Static folder

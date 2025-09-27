@@ -1531,7 +1531,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useDebounce from "../hooks/useDebounce";
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL ;
 
 
 const Upload = () => {
@@ -1567,7 +1567,7 @@ const Upload = () => {
   const fetchSuggestions = async (field, query, setter) => {
     if (!query || query.length < 2) return setter([]);
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/files/suggestions?field=${field}&query=${encodeURIComponent(query)}`);
+      const { data } = await axios.get(`${API_BASE}/api/files/suggestions?field=${field}&query=${encodeURIComponent(query)}`);
       setter(data);
     } catch (err) {
       console.error("Suggestion error:", err);
@@ -1619,7 +1619,7 @@ const Upload = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/files/upload", form, {
+      await axios.post("${API_BASE}/api/files/upload", form, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,

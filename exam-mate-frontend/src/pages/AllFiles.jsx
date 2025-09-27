@@ -953,7 +953,7 @@ const AllFiles = () => {
     if (!query || query.length < 2) return setter([]);
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/files/suggestions?field=${field}&query=${encodeURIComponent(query)}`
+        `${API_BASE}/api/files/suggestions?field=${field}&query=${encodeURIComponent(query)}`
       );
       setter(res.data);
     } catch (err) {
@@ -964,13 +964,13 @@ const AllFiles = () => {
 
   // ---------------- FETCH FEEDBACK ----------------
   const fetchFeedback = async (fileId) => {
-    try {
-      const res = await axios.get(`http://localhost:5000/api/feedback/${fileId}`);
-      setFeedbacks((prev) => ({ ...prev, [fileId]: res.data }));
-    } catch (err) {
-      console.error("Error fetching feedback:", err);
-    }
-  };
+  try {
+  const res = await axios.get(`${API_BASE}/api/feedback/${fileId}`);
+  setFeedbacks((prev) => ({ ...prev, [fileId]: res.data }));
+} catch (err) {
+  console.error("Error fetching feedback:", err);
+}
+  }; 
 
   // ---------------- SUBMIT FEEDBACK ----------------
   const submitFeedback = async (fileId) => {
@@ -981,7 +981,7 @@ const AllFiles = () => {
         return;
       }
       await axios.post(
-        `http://localhost:5000/api/feedback/${fileId}`,
+        `${API_BASE}/api/feedback/${fileId}`,
         newFeedback[fileId],
         {
           headers: {
@@ -1164,7 +1164,7 @@ const AllFiles = () => {
                     👁️ Preview
                   </button>
                   <a
-                    href={`http://localhost:5000/api/files/download/${file.storedName}`}
+                    href={`${API_BASE}/api/files/download/${file.storedName}`}
                     target="_blank"
                     rel="noreferrer"
                     className="bg-purple-200 text-purple-900 text-sm px-4 py-1 rounded hover:bg-purple-300"
@@ -1267,14 +1267,14 @@ const AllFiles = () => {
             </button>
             {previewFile?.endsWith(".pdf") ? (
               <embed
-                src={`http://localhost:5000/api/files/view/${previewFile}`}
+                src={`${API_BASE}/api/files/view/${previewFile}`}
                 type="application/pdf"
                 width="100%"
                 height="600px"
               />
             ) : (
               <img
-                src={`http://localhost:5000/uploads/${previewFile}`}
+                src={`${API_BASE}/uploads/${previewFile}`}
                 alt="Preview"
                 className="w-full max-h-[600px] object-contain"
               />
