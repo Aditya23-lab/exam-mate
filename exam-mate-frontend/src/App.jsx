@@ -23,7 +23,7 @@ const PrivateRoute = ({ children }) => {
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <NavBar />
       <Routes>
         {/* ✅ Landing Page */}
         <Route path="/" element={<Landing />} />

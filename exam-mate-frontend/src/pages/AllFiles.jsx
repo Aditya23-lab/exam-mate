@@ -894,6 +894,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useDebounce from "../hooks/useDebounce";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 
 const AllFiles = () => {
   const [files, setFiles] = useState([]);

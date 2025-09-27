@@ -1531,6 +1531,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useDebounce from "../hooks/useDebounce";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 
 const Upload = () => {
   const navigate = useNavigate();
