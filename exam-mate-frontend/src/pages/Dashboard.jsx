@@ -440,7 +440,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL ;
 
 
 const Dashboard = () => {
@@ -457,13 +457,14 @@ const Dashboard = () => {
   ];
 
   const fetchMyFiles = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/files/my", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axios.get(`${API_BASE}/api/files/my`, {
+      params, // query parameters
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
       setMyFiles(res.data);
       generateRecommendations(res.data);
     } catch (err) {

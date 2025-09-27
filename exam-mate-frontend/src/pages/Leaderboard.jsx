@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL ;
 
 
 const Leaderboard = () => {
@@ -16,14 +16,19 @@ const Leaderboard = () => {
 
   useEffect(() => {
     const fetchLeaders = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/files/leaderboard");
-        setLeaders(res.data);
-      } catch (err) {
-        console.error("Error fetching leaderboard", err);
-      }
-    };
-
+       try {
+    const token = localStorage.getItem("token"); // only if needed
+    const res = await axios.get(`${API_BASE}/api/files/leaderboard`, {
+      headers: token
+        ? { Authorization: `Bearer ${token}` }
+        : undefined,
+    });
+    setLeaders(res.data);
+  } catch (err) {
+    console.error("Error fetching leaderboard", err);
+  }
+};
+     
     fetchLeaders();
   }, []);
 
