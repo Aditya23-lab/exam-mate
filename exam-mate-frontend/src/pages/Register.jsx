@@ -5,8 +5,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-const API_BASE = import.meta.env.VITE_API_URL ;
-
+const API_BASE = import.meta.env.VITE_API_URL;
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -31,11 +30,17 @@ const Register = () => {
     setError("");
 
     try {
-      const res =  await axios.post(`${API_BASE}/api/auth/register`, formData);
-      if (res.data.token) {
+      const res = await axios.post(`${API_BASE}/api/auth/register`, formData);
+
+      // ✅ Minimal change: handle both token or 201/204 responses
+      if (res.data?.token) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
+         setSuccess("✅ Registration successful! Redirecting to dashboard...");
         navigate("/dashboard");
+      } else if (res.status === 201 || res.status === 204) {
+        // No token but registration successful
+        navigate("/login");
       }
     } catch (err) {
       console.error(err);
