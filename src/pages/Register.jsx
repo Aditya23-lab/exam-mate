@@ -159,6 +159,7 @@ const Register = () => {
       if (res.data?.token) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
+         setSuccess("✅ Registration successful! Redirecting to dashboard...");
         navigate("/dashboard");
       } else if (res.status === 201 || res.status === 204) {
         // No token but registration successful
