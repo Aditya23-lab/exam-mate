@@ -36,3 +36,7 @@ exam-mate-frontend/.env
 *.njsproj
 *.sln
 *.sw?
+
+
+.env
+
