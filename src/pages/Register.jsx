@@ -139,9 +139,6 @@ const Register = () => {
   });
 
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -154,21 +151,22 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
-    setLoading(true);
 
     try {
       const res = await axios.post(`${API_BASE}/api/auth/register`, formData);
 
-      if (res.data) {
-        setSuccess("✅ Registration successful! Redirecting to login...");
-        setTimeout(() => navigate("/login"), 2000); // redirect after 2s
+      // ✅ Minimal change: handle both token or 201/204 responses
+      if (res.data?.token) {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        navigate("/dashboard");
+      } else if (res.status === 201 || res.status === 204) {
+        // No token but registration successful
+        navigate("/login");
       }
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.message || "❌ Registration failed");
-    } finally {
-      setLoading(false);
+      setError(err.response?.data?.message || "Registration failed");
     }
   };
 
@@ -218,14 +216,12 @@ const Register = () => {
             />
 
             {error && <p className="text-red-600 text-sm">{error}</p>}
-            {success && <p className="text-green-600 text-sm">{success}</p>}
 
             <button
               type="submit"
-              disabled={loading}
               className="w-full bg-pink-600 text-white py-2 rounded-xl hover:bg-pink-700 transition"
             >
-              {loading ? "⏳ Registering..." : "🚀 Register"}
+              🚀 Register
             </button>
           </form>
 
